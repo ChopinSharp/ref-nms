@@ -1,0 +1,10 @@
+/.vscode
+/**/__pycache__
+/data
+!data/README.md
+/tb
+!tb/.gitkeep
+/cache
+!cache/.gitkeep
+/output
+!output/.gitkeep
