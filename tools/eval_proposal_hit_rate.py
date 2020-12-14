@@ -25,7 +25,7 @@ def main(args):
     dataset_splitby = '{}_{}'.format(args.dataset, args.split_by)
     eval_splits = EVAL_SPLITS_DICT[dataset_splitby]
     # Load proposals
-    proposal_path = 'cache/proposals_{}_{}.pkl'.format(args.m, args.tid)
+    proposal_path = 'cache/proposals_{}_{}_{}.pkl'.format(args.m, args.dataset, args.tid)
     print('loading {} proposals from {}...'.format(args.m, proposal_path))
     with open(proposal_path, 'rb') as f:
         proposal_dict = pickle.load(f)
@@ -34,15 +34,12 @@ def main(args):
     # Evaluate hit rate
     print('Hit rate on {}\n'.format(dataset_splitby))
     evaluator = NewHitRateEvaluator(refer, top_N=None, threshold=args.thresh)
-    conf_scale = [0.095]
-    for conf in conf_scale:
-        print('conf: {:.3f}'.format(conf))
-        for split in eval_splits:
-            exp_to_proposals = proposal_dict[split]
-            exp_to_proposals = threshold_with_confidence(exp_to_proposals, conf)
-            proposal_per_ref, hit_rate = evaluator.eval_hit_rate(split, exp_to_proposals)
-            print('[{:5s}] hit rate: {:.2f} @ {:.2f}'.format(split, hit_rate*100, proposal_per_ref))
-        print()
+    print('conf: {:.3f}'.format(args.conf))
+    for split in eval_splits:
+        exp_to_proposals = proposal_dict[split]
+        exp_to_proposals = threshold_with_confidence(exp_to_proposals, args.conf)
+        proposal_per_ref, hit_rate = evaluator.eval_hit_rate(split, exp_to_proposals)
+        print('[{:5s}] hit rate: {:.2f} @ {:.2f}'.format(split, hit_rate*100, proposal_per_ref))
 
 
 if __name__ == '__main__':
@@ -52,4 +49,5 @@ if __name__ == '__main__':
     parser.add_argument('--split-by', default='unc')
     parser.add_argument('--tid', type=str, required=True)
     parser.add_argument('--thresh', type=float, default=0.5)
+    parser.add_argument('--conf', type=float, required=True)
     main(parser.parse_args())

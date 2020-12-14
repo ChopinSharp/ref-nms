@@ -19,7 +19,6 @@ from utils.misc import get_time_id
 
 
 PRETRAINED_MRCN = 'data/res101_mask_rcnn_iter_1250000_cpu.pth'
-MODEL_INFO_FILE = 'output/model_info.json'
 
 CONFIG = dict(
     HEAD_LR=2e-4,
