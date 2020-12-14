@@ -1,10 +1,10 @@
 /.vscode
 /**/__pycache__
-/data
+data/*
 !data/README.md
-/tb
+tb/*
 !tb/.gitkeep
-/cache
+cache/*
 !cache/.gitkeep
-/output
+output/*
 !output/.gitkeep
