@@ -76,14 +76,14 @@ python tools/eval_ref_masks.py --dataset refcoco --splitBy unc --tid <tid> --top
 ## Pretrained Models
 We provide pre-trained model weights as long as the corresponding MAttNet-style detection file. With these files, one can easily reproduce our reported results. Note the MattNet-style detection files can be directly used to evaluate downstream REG task performance.
 
-[[Google Drive]](https://drive.google.com/drive/folders/1VnPhOBjuv6XoFj1BhzoJRHySEIJ0w3tM?usp=sharing) [[Baidu Disk]](https://pan.baidu.com/s/1G4k7APKSUs-_5StXoYaNrA) (extraction code: 5a9r)
+[[Google Drive]](https://drive.google.com/drive/folders/1BPqWW0LrAEBFna7b-ORF2TcrY7K_DDvM?usp=sharing) [[Baidu Disk]](https://pan.baidu.com/s/1G4k7APKSUs-_5StXoYaNrA) (extraction code: 5a9r)
 
 ## Citation
 ```
-@article{chen2020ref,
+@inproceedings{chen2021ref,
   title={Ref-NMS: Breaking Proposal Bottlenecks in Two-Stage Referring Expression Grounding},
-  author={Chen, Long and Ma, Wenbo and Xiao, Jun and Zhang, Hanwang and Liu, Wei and Chang, Shih-Fu},
-  journal={arXiv preprint arXiv:2009.01449},
-  year={2020}
+  author={Chen, Long and Ma, Wenbo and Xiao, Jun and Zhang, Hanwang and Chang, Shih-Fu},
+  booktitle={AAAI},
+  year={2021}
 }
 ```
